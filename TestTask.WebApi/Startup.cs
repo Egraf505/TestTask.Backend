@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using Newtonsoft.Json;
 using TestTask.Persistence;
 
 namespace TestTask.WebApi
@@ -15,7 +16,12 @@ namespace TestTask.WebApi
             services.AddSwaggerGen();
 
             services.AddPersistence(Configuration);
-            services.AddControllers();
+
+            services.AddControllers().AddNewtonsoftJson(
+          options => {
+              options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+          });
+
 
             services.AddCors(options =>
             {

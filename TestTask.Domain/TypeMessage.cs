@@ -10,6 +10,6 @@ namespace TestTask.Domain
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public List<Contact> Contacts { get; set; } = new List<Contact>();
+        public List<Message> Messages { get; set; } = new List<Message>();
     }
 }

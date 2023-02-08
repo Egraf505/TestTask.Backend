@@ -9,8 +9,7 @@ namespace TestTask.Persistence.EntityTypeConfigurations
         public void Configure(EntityTypeBuilder<Message> builder)
         {
             builder.HasKey(message => message.Id);
-            builder.Property(message => message.Title ).HasMaxLength(500);
-            builder.HasOne(message => message.Contact).WithMany(contact => contact.Messages);
+            builder.Property(message => message.Title ).HasMaxLength(500);         
         }
     }
 }

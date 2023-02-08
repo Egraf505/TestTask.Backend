@@ -12,10 +12,12 @@ namespace TestTask.Persistence
 {
     public class ContactDbContext : DbContext, IContactDbContext
     {
-        public DbSet<Contact> Contacts { get; set; }
-        public DbSet<Message> Messages { get; set; }
-        public DbSet<TypeMessage> TypeMessages { get; set; }
+        public DbSet<Contact> Contacts { get; set; } = null!;
+        public DbSet<Message> Messages { get; set; } = null!;
+        public DbSet<TypeMessage> TypeMessages { get; set; } = null!;
 
+        public ContactDbContext(DbContextOptions<ContactDbContext> options)
+            : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
